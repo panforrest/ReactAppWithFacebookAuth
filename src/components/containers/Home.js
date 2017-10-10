@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import actions from '../../actions'
 
 class Home extends Component {
   constructor(){
@@ -25,7 +27,14 @@ class Home extends Component {
   }
 
   registerVisitor(event){
-    console.log('registerVisitor')
+    console.log('registerVisitor: ' + JSON.stringify(this.state))
+    this.props.register(this.state)
+    .then(data => {
+      console.log('USER CREATED: ' + JSON.stringify(data))
+    })
+    .catch(err => {
+      alert('Error: ' + err.message)
+    })
   }
 
   render(){
@@ -40,4 +49,16 @@ class Home extends Component {
   }
 } 
 
-export default Home
+const stateToProps = (state) => {
+  return{
+
+  }
+}
+
+const dispatchToProps = (dispatch) => {
+  return{
+  	register: (visitor) => dispatch(actions.register(visitor))
+  }
+}
+
+export default connect(stateToProps, dispatchToProps)(Home)
