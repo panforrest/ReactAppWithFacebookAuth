@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 class Admin extends Component {
   render(){
     return (
-      <div>Admin Container</div>
+      <div className="container">
+        Admin Container
+      </div>
     )
   }
 }
