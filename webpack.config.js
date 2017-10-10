@@ -1,13 +1,14 @@
 var webpack = require('webpack')
 var path = require('path')
 var CommonsChunkPlugin = new require('webpack/lib/optimize/CommonsChunkPlugin')
-var chunks = ['app']
+var chunks = ['app', 'admin']
 var config = require('./package.json')
 
 module.exports = {
 
 	entry: {
-		app: './src/index.js'
+		app: './src/index.js',
+		admin: './src/admin.js'
 	},
 	output: {
 		path: __dirname+'/dist',

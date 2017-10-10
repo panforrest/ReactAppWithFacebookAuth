@@ -31,6 +31,7 @@ class Home extends Component {
     this.props.register(this.state)
     .then(data => {
       console.log('USER CREATED: ' + JSON.stringify(data))
+      window.location.href = '/admin'
     })
     .catch(err => {
       alert('Error: ' + err.message)
