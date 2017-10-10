@@ -19,7 +19,9 @@ export default (state = initialState, action) => {
 
 	switch (action.type) {
 
+		// case constants.CURRENT_USER_RECEIVED:
 		case constants.CURRENT_USER_RECEIVED:
+		    console.log('CURRENT_USER_RECEIVED:' + JSON.stringify(action.data))
 			newState['currentUser'] = action.data
 			return newState
 
