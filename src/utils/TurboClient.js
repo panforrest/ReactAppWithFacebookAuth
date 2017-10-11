@@ -123,6 +123,23 @@ const currentUser = (actionType) => {
 		})
 }
 
+const updateCurrentUser = (currentUser, params, actionType) => {
+	return dispatch => turbo({site_id:APP_ID}).update('user', currentUser, params)
+		.then(data => {
+			if (actionType != null){
+				dispatch({
+					type: actionType,
+					data: data
+				})
+			}
+
+			return data
+		})
+		.catch(err => {
+			throw err
+		})	
+}
+
 export default {
 
 	getRequest: getRequest,
@@ -131,6 +148,7 @@ export default {
 	deleteRequest: deleteRequest,
 	createUser: createUser,
 	login: login,
-	currentUser: currentUser
+	currentUser: currentUser,
+	updateCurrentUser: updateCurrentUser
 
 }

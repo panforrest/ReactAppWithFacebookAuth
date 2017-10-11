@@ -35,6 +35,10 @@ export default (state = initialState, action) => {
 			newState['all'] = array
 			return newState
 
+		case constants.CURRENT_USER_UPDATED:
+		    console.log('CURRENT_USER_UPDATED: ' + JSON.stringify(action.data))	
+		    return newState
+
 		default:
 			return state
 	}
